@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segmentation App - ver3.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <script src="js/nouislider.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /*FILE INPUTS TOGGLE FUNCTIONALITY */
+        #toggleInputs {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        /*FILE INPUTS CONTAINER */
+        .file-inputs-container {
+            display: none;
+            flex-wrap: wrap; /* Allows wrapping for multiple inputs */
+            gap: 10px; /* Space between inputs */
+            margin-bottom: 15px;
+        }
+        /*INDIVIDUAL FILE INPUT BLOCK */
+        .file-input {
+            display: flex;
+            flex-direction: column; /* Stack label, input, and button */
+            align-items: center;
+            min-width: 160px;
+        }
+        /*PLOT SECTIONS */
+        .center-wrapper {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center horizontally */
+            width: 100%;
+        }
+        .plot-section {
+            width: 75%; /* Keep plots within a readable size */
+            margin-bottom: 15px;
+        }
+        .plot-section strong {
+            display: block;
+            text-align: center; /* Center text */
+            margin-bottom: 5px; /* Adds spacing below the title */
+        }
+        .plot {
+            width: 100%; /* Responsive width */
+            height: 30vh; /* Set height for consistency */
+        }
+        /*SLIDER SECTION */
+        .slider-container {
+            width: 75%; /* Match slider width to plot width */
+            margin: 15px auto; /* Center horizontally */
+        }
+        /*SAMPLE SIZE DISPLAY */
+        .sample-size {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .sample-size pre {
+            width: 32%;
+            text-align: center;
+        }
+        /*GENERAL BUTTON STYLING */
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer; /* Ensure button interaction */
+        }
+        /*PAGE HEADER */
+        h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h3>Segmentation App - ver3.0</h3>
+
+    <label for="numFiles">Number of Signals:</label>
+    <select id="numFiles">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <button id="initialize">Start</button>
+
+    <!-- Toggle Button to Show/Hide File Inputs -->
+    <button id="toggleInputs">Show File Inputs</button>
+
+    <!-- Container for Dynamic File Inputs (Initially Hidden) -->
+    <div id="fileInputsContainer" class="file-inputs-container"></div>
+
+    <!-- Plots and Slider Section -->
+    <div id="dynamicContainers"></div>
+
+    <!-- Slider -->
+    <div class="slider-container">
+        <div id="rangeSlider" class="slider"></div>
+    </div>
+    <pre id="segmentInfo"></pre>
+    <button id="segmentButton">Segment</button>
+
+    <!-- Link to the external JS file -->
+    <script src="js/ver-3.js"></script>
+
+</body>
+</html>

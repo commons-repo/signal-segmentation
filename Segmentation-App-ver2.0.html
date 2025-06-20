@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segmentation App - ver2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .file-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .file-inputs div {
+            display: flex;
+            align-items: center;
+            width: 32%;
+        }
+        .file-inputs label {
+            margin-right: 10px;
+        }
+        .center-wrapper {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center horizontally */
+            width: 100%;
+        }
+        .plot-section {
+            width: 75%; /* Reduced width for consistency */
+            margin-bottom: 15px;
+        }
+	.plot-section strong {
+    	    display: block;
+    	    text-align: center; /* Center text */
+    	    margin-bottom: 5px; /* Optional: Add spacing below the title */
+	}
+        .plot {
+            width: 100%; /* Match the parent's width */
+            height: 20vh; /* Consistent height for plots */
+        }
+        .slider-container {
+            width: 75%; /* Match slider width to plot width */
+            margin: 15px auto; /* Center horizontally */
+        }
+        .sample-size {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .sample-size pre {
+            width: 32%;
+            text-align: center;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h3>Segmentation App - ver2.0</h3>
+    
+    <!-- File Inputs with Save Buttons in One Row -->
+    <div class="file-inputs">
+        <div>
+            <label for="fileInput1">Signal-1:</label>
+            <input type="file" id="fileInput1">
+            <button id="saveButton1">Save</button>
+        </div>
+        <div>
+            <label for="fileInput2">Signal-2:</label>
+            <input type="file" id="fileInput2">
+            <button id="saveButton2">Save</button>
+        </div>
+        <div>
+            <label for="fileInput3">Signal-3:</label>
+            <input type="file" id="fileInput3">
+            <button id="saveButton3">Save</button>
+        </div>
+    </div>
+
+    <!-- Centered Plots and Slider -->
+    <div class="center-wrapper">
+        <!-- Plots -->
+        <div class="plot-section">
+            <div><strong>Signal-1</strong></div>
+            <div id="plotArea1" class="plot"></div>
+        </div>
+        <div class="plot-section">
+            <div><strong>Signal-2</strong></div>
+            <div id="plotArea2" class="plot"></div>
+        </div>
+        <div class="plot-section">
+            <div><strong>Signal-3</strong></div>
+            <div id="plotArea3" class="plot"></div>
+        </div>
+
+        <!-- Slider -->
+        <div class="slider-container">
+            <div id="rangeSlider" class="slider"></div>
+        </div>
+        <pre id="segmentInfo"></pre>
+        <button id="segmentButton">Segment</button>
+    </div>
+
+    <!-- Sample Size Labels -->
+    <div class="sample-size">
+        <pre id="sampleCount1"></pre>
+        <pre id="sampleCount2"></pre>
+        <pre id="sampleCount3"></pre>
+    </div>
+
+    <!-- Link to the external JS file -->
+    <script src="js/ver-2.js"></script>
+
+</body>
+</html>

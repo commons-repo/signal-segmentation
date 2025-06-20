@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segmentation App - ver1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .slider-container {
+            width: 100%;
+            margin: 15px 0;
+        }
+        .slider {
+            width: 100%;
+        }
+        #plotArea {
+            width: 100%;
+            height: 50vh;
+        }
+        button {
+            padding: 2px 5px;
+            font-size: 14px;
+        }
+        h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h3>Segmentation App - ver1.0</h3>
+    
+    <!-- File Upload -->
+    <input type="file" id="fileInput">
+    <br><br>
+
+    <!-- Number of Samples Display -->
+    <pre id="sampleCount"></pre>
+
+    <!-- Plot Area -->
+    <div id="plotArea"></div>
+
+    <!-- Segment Controls -->
+    <div class="slider-container">
+        <div id="rangeSlider" class="slider"></div>
+    </div>
+
+    <!-- Segment Info -->
+    <pre id="segmentInfo"></pre>
+
+    <!-- Segment and Save Buttons -->
+    <button id="segmentButton">Segment</button>
+    <button id="saveButton">Save</button>
+
+    <!-- Link to the external JS file -->
+    <script src="js/ver-1.js"></script>
+    
+</body>
+</html>
